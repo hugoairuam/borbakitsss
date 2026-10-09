@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BorbaKits | Loja Esportiva</title>
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.80),
+                    rgba(0,0,0,0.94)
+                ),
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDg6RyTNDDRLZGAoTC4MxeBS7Z0HnWEAdDEygdH35FiPb54NqimY2ex2A&s=10");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(5,5,5,0.96);
+
+            border-bottom: 1px solid #222;
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,0.5);
+        }
+
+        .header-container {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 15px 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 28px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #22c55e;
+        }
+
+
+        /* =====================================================
+           MENU
+        ===================================================== */
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #22c55e;
+        }
+
+
+        /* =====================================================
+           BOTÃO CARRINHO
+        ===================================================== */
+
+        .cart-button {
+            border: none;
+
+            background: #22c55e;
+
+            color: white;
+
+            padding: 12px 18px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .cart-button:hover {
+            background: #16a34a;
+
+            transform: translateY(-2px);
+        }
+
+        #contador {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 24px;
+
+            height: 24px;
+
+            margin-left: 5px;
+
+            background: white;
+
+            color: #16a34a;
+
+            border-radius: 50%;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 40px 25px 70px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 450px;
+
+            padding: 60px;
+
+            border-radius: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(34,197,94,0.22),
+                    rgba(0,0,0,0.85)
+                );
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 {
+            max-width: 800px;
+
+            font-size: clamp(42px,7vw,70px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #22c55e;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            color: #ccc;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            width: fit-content;
+
+            padding: 15px 25px;
+
+            background: #22c55e;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #16a34a;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           SEÇÕES
+        ===================================================== */
+
+        section {
+            margin-top: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+
+        /* =====================================================
+           FILTROS
+        ===================================================== */
+
+        .filtros {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-bottom: 30px;
+        }
+
+        .filtro {
+            padding: 10px 18px;
+
+            background: #181818;
+
+            border: 1px solid #333;
+
+            color: white;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .filtro:hover,
+        .filtro.ativo {
+            background: #22c55e;
+
+            border-color: #22c55e;
+        }
+
+
+        /* =====================================================
+           PRODUTOS
+        ===================================================== */
+
+        .products {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 25px;
+        }
+
+        .product {
+            overflow: hidden;
+
+            background: rgba(17,17,17,0.96);
+
+            border: 1px solid #292929;
+
+            border-radius: 20px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+
+            border-color: #22c55e;
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,0.5);
+        }
+
+        .product-image-container {
+            height: 300px;
+
+            overflow: hidden;
+
+            background: white;
+
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.4s;
+        }
+
+        .product:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .categoria {
+            position: absolute;
+
+            top: 12px;
+
+            left: 12px;
+
+            background: #22c55e;
+
+            color: white;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+        .product-content {
+            padding: 22px;
+        }
+
+        .product h3 {
+            min-height: 55px;
+
+            line-height: 1.4;
+
+            margin-bottom: 12px;
+
+            font-size: 17px;
+        }
+
+        .price {
+            color: #22c55e;
+
+            font-size: 23px;
+
+            font-weight: 900;
+
+            margin-bottom: 10px;
+        }
+
+        .sizes {
+            color: #999;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+        }
+
+        .buy-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #22c55e;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .buy-button:hover {
+            background: #16a34a;
+        }
+
+
+        /* =====================================================
+           CARRINHO
+        ===================================================== */
+
+        .cart-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 1999;
+
+            background: rgba(0,0,0,0.75);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: 0.3s;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+        .cart-panel {
+            position: fixed;
+
+            top: 0;
+
+            right: 0;
+
+            z-index: 2000;
+
+            width: 430px;
+
+            max-width: 100%;
+
+            height: 100vh;
+
+            background: #111;
+
+            display: flex;
+
+            flex-direction: column;
+
+            transform: translateX(100%);
+
+            transition: 0.35s;
+
+            box-shadow:
+                -15px 0 50px rgba(0,0,0,0.6);
+        }
+
+        .cart-panel.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom: 1px solid #333;
+        }
+
+        .cart-header h2 {
+            font-size: 22px;
+        }
+
+        .close-cart {
+            width: 38px;
+
+            height: 38px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #222;
+
+            color: white;
+
+            font-size: 24px;
+
+            cursor: pointer;
+        }
+
+        .close-cart:hover {
+            background: #ef4444;
+        }
+
+        .cart-items {
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px;
+        }
+
+        .empty-cart {
+            text-align: center;
+
+            color: #777;
+
+            margin-top: 60px;
+        }
+
+        .cart-item {
+            display: flex;
+
+            gap: 12px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #292929;
+        }
+
+        .cart-item img {
+            width: 80px;
+
+            height: 80px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            background: white;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            font-size: 14px;
+
+            line-height: 1.4;
+
+            margin-bottom: 8px;
+        }
+
+        .cart-item-price {
+            color: #22c55e;
+
+            font-weight: bold;
+        }
+
+        .quantity {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 10px;
+        }
+
+        .quantity button {
+            width: 28px;
+
+            height: 28px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background: #292929;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+        .quantity button:hover {
+            background: #22c55e;
+        }
+
+        .remove {
+            border: none;
+
+            background: transparent;
+
+            color: #ef4444;
+
+            cursor: pointer;
+
+            margin-top: 8px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+
+            background: #080808;
+
+            border-top: 1px solid #333;
+        }
+
+        .subtotal {
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        #total {
+            color: #22c55e;
+        }
+
+        .checkout {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #22c55e;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .checkout:hover {
+            background: #16a34a;
+        }
+
+
+        /* =====================================================
+           CONTATO
+        ===================================================== */
+
+        .contact {
+            max-width: 800px;
+
+            margin: auto;
+
+            padding: 35px;
+
+            background: rgba(15,15,15,0.94);
+
+            border: 1px solid #292929;
+
+            border-radius: 20px;
+        }
+
+        form {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+
+            margin-top: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 14px;
+
+            background: #0d0d0d;
+
+            color: white;
+
+            border: 1px solid #333;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #22c55e;
+        }
+
+        textarea {
+            min-height: 130px;
+
+            resize: vertical;
+        }
+
+        .submit-button {
+            margin-top: 10px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #22c55e;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 40px 20px;
+
+            text-align: center;
+
+            background: #050505;
+
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            color: #999;
+
+            margin: 8px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 35px 25px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .header-container {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .cart-panel {
+                width: 100%;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            borba<span>Kits</span>
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+
+                <li>
+                    <a href="#produtos">Produtos</a>
+                </li>
+
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <button
+            class="cart-button"
+            onclick="abrirCarrinho()"
+        >
+            🛒 Carrinho
+            <span id="contador">0</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     CARRINHO
+===================================================== -->
+
+<div
+    class="cart-overlay"
+    id="overlay"
+    onclick="fecharCarrinho()"
+></div>
+
+
+<aside
+    class="cart-panel"
+    id="cartPanel"
+>
+
+    <div class="cart-header">
+
+        <h2>
+            🛒 Meu Carrinho
+        </h2>
+
+        <button
+            class="close-cart"
+            onclick="fecharCarrinho()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems"
+    >
+
+        <p class="empty-cart">
+            Seu carrinho está vazio.
+        </p>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="subtotal">
+
+            <span>
+                Total:
+            </span>
+
+            <span id="total">
+                R$ 0,00
+            </span>
+
+        </div>
+
+        <button
+            class="checkout"
+            onclick="finalizarPedido()"
+        >
+            📱 Finalizar pelo WhatsApp
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     INÍCIO
+===================================================== -->
+
+<section
+    id="inicio"
+    class="hero"
+>
+
+    <h1>
+
+        Vista seu estilo.
+        <span>
+            Viva sua paixão.
+        </span>
+
+    </h1>
+
+    <p>
+
+        Bem-vindo à BorbaKits.
+        Sua loja de roupas, tênis e produtos esportivos.
+
+        Aproveite nossas coleções e encontre
+        seu próximo estilo.
+
+    </p>
+
+    <a
+        href="#produtos"
+        class="hero-button"
+    >
+        Ver produtos
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUTOS
+===================================================== -->
+
+<section id="produtos">
+
+    <div class="section-title">
+
+        <h2>
+            Nossos Produtos
+        </h2>
+
+        <p>
+            Escolha uma categoria ou confira todos os produtos.
+        </p>
+
+    </div>
+
+
+    <!-- FILTROS -->
+
+    <div class="filtros">
+
+        <button
+            class="filtro ativo"
+            onclick="filtrarProdutos('todos', this)"
+        >
+            Todos
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProdutos('tenis', this)"
+        >
+            👟 Tênis
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProdutos('camisas', this)"
+        >
+            ⚽ Camisas
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProdutos('tech', this)"
+        >
+            👕 Nike Tech
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProdutos('calcas', this)"
+        >
+            👖 Calças
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProdutos('shorts', this)"
+        >
+            🩳 Shorts
+        </button>
+
+    </div>
+
+
+    <!-- PRODUTOS SERÃO COLOCADOS AQUI PELO JAVASCRIPT -->
+
+    <div
+        class="products"
+        id="products"
+    ></div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTATO
+===================================================== -->
+
+<section id="contato">
+
+    <div class="section-title">
+
+        <h2>
+            Fale Conosco
+        </h2>
+
+        <p>
+            Entre em contato com a BorbaKits.
+        </p>
+
+    </div>
+
+
+    <div class="contact">
+
+        <form
+            onsubmit="enviarFormulario(event)"
+        >
+
+            <label for="nome">
+                Nome completo
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+                required
+            >
+
+
+            <label for="email">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="exemplo@email.com"
+                required
+            >
+
+
+            <label for="mensagem">
+                Avaliação / Mensagem
+            </label>
+
+            <textarea
+                id="mensagem"
+                placeholder="Escreva sua dúvida ou sugestão..."
+            ></textarea>
+
+
+            <button
+                class="submit-button"
+                type="submit"
+            >
+                Enviar mensagem
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h3>
+        borba<span style="color:#22c55e;">
+            Kits
+        </span>
+    </h3>
+
+    <p>
+        A melhor loja de Gália e região.
+    </p>
+
+    <p>
+        Instagram: @airuam.vzs
+    </p>
+
+    <p>
+        WhatsApp: 14 99841-6400
+    </p>
+
+    <p>
+        © 2026 BorbaKits
+    </p>
+
+</footer>
+
+
+<script>
+
+
+/* =====================================================
+   PRODUTOS
+===================================================== */
+
+const produtos = [
+
+    /* =================================================
+       PRODUTOS ORIGINAIS
+    ================================================= */
+
+    {
+        nome:
+            "Jaqueta Nike Sportswear Club Puffer Masculina",
+
+        preco:
+            680.99,
+
+        categoria:
+            "tech",
+
+        categoriaNome:
+            "Jaqueta",
+
+        tamanhos:
+            "M, G e GG",
+
+        imagem:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSEuIGNhRvvWWeodcSJvqnc4ApE6CeuepOuI7Q6vCxew&s"
+    },
+
+
+    {
+        nome:
+            "Conjunto Regata e Short Verde Barcelona 2023-2024",
+
+        preco:
+            229.99,
+
+        categoria:
+            "camisas",
+
+        categoriaNome:
+            "Futebol",
+
+        tamanhos:
+            "M, G e GG",
+
+        imagem:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNj3Dz-SZkvFqznwZJTtvY5qtbPEhZo5KhoNxu29ht5A&s=10"
+    },
+
+
+    {
+        nome:
+            "Tênis Nike Air Vapormax Flyknit 2",
+
+        preco:
+            550.99,
+
+        categoria:
+            "tenis",
+
+        categoriaNome:
+            "Tênis",
+
+        tamanhos:
+            "38, 40, 42 e 44",
+
+        imagem:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBg2sQO0hMCk8ycKkx-4RsmI2DCssoF7K5TMwoWHniJA&s=10"
+    },
+
+
+    /* =================================================
+       5 TÊNIS SPORTLIFE / ESTILO SPORTLIFE
+    ================================================= */
+
+    {
+        nome:
+            "Tênis Sportlife Runner Black",
+
+        preco:
+            349.99,
+
+        categoria:
+            "tenis",
+
+        categoriaNome:
+            "Sportlife",
+
+        tamanhos:
+            "38, 39, 40, 41, 42 e 43",
+
+        imagem:
+            "https://http2.mlstatic.com/D_Q_NP_2X_830720-MLA52429347217_112022-AB.jpg"
+    },
+
+
+    {
+        nome:
+            "Nike Air Max Plus TN Black",
+
+        preco:
+            397.90,
+
+        categoria:
+            "tenis",
+
+        categoriaNome:
+            "Sportlife",
+
+        tamanhos:
+            "38, 39, 40, 41, 42 e 43",
+
+        imagem:
+            "https://lojasportlifeoficial.com.br/cdn/shop/files/air-max-plus-tn1-black-metallic.jpg"
+    },
+
+
+    {
+        nome:
+            "Asics Gel-NYC Graphite Grey",
+
+        preco:
+            429.99,
+
+        categoria:
+            "tenis",
+
+        categoriaNome:
+            "Sportlife",
+
+        tamanhos:
+            "38, 39, 40, 41, 42 e 43",
+
+        imagem:
+            "https://www.fenom.com/cdn/shop/files/1201A789-020.jpg"
+    },
+
+
+    {
+        nome:
+            "Adidas Campus 00s Grey White",
+
+        preco:
+            379.99,
+
+        categoria:
+            "tenis",
+
+        categoriaNome:
+            "Sportlife",
+
+        tamanhos:
+            "38, 39, 40, 41 e 42",
+
+        imagem:
+            "https://images.tcdn.com.br/img/img_prod/1347761/campus_00s_grey_111_2_86334dcb94099052973797545aa88604.png"
+    },
+
+
+    {
+        nome:
+            "Nike Air Max Plus Black White",
+
+        preco:
+            419.99,
+
+        categoria:
+            "tenis",
+
+        categoriaNome:
+            "Sportlife",
+
+        tamanhos:
+            "38, 39, 40, 41, 42 e 43",
+
+        imagem:
+            "https://midonstore.com/cdn/shop/files/nike-air-max-plus-tn-black-white.jpg"
+    },
+
+
+    /* =================================================
+       5 CAMISAS DE FUTEBOL
+    ================================================= */
+
+    {
+        nome:
+            "Camisa Flamengo I 2026",
+
+        preco:
+            449.90,
+
+        categoria:
+            "camisas",
+
+        categoriaNome:
+            "Flamengo",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://images.tcdn.com.br/img/img_prod/1092308/manto_flamengo_jogo_1_adidas_2026_jm5651_1_20260209152901_3ab6082f5c6f.jpeg"
+    },
+
+
+    {
+        nome:
+            "Camisa Liverpool FC 25/26",
+
+        preco:
+            449.99,
+
+        categoria:
+            "camisas",
+
+        categoriaNome:
+            "Liverpool",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://assets.adidas.com/images/w_1880%2Cf_auto%2Cq_auto/2e9b3d1665f944f09c921c0174b355bf_9366/JV6423_21_model.jpg"
+    },
+
+
+    {
+        nome:
+            "Camisa Alemanha 2026",
+
+        preco:
+            399.99,
+
+        categoria:
+            "camisas",
+
+        categoriaNome:
+            "Alemanha",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://cdn.bucketstore.com/goods/extmall/SC00112/CRS0000151153_01.jpg?f=webp&q=95&s=620"
+    },
+
+
+    {
+        nome:
+            "Camisa Seleção Chilena 2026",
+
+        preco:
+            379.99,
+
+        categoria:
+            "camisas",
+
+        categoriaNome:
+            "Chile",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://assets.adidas.com/images/w_600%2Cf_auto%2Cq_auto/6b8b3f9d8d4c4d2e8a8b0c8a4d3d8b1e_9366/KG8542_21_model.jpg"
+    },
+
+
+    {
+        nome:
+            "Camisa Seleção Argentina 2026",
+
+        preco:
+            399.99,
+
+        categoria:
+            "camisas",
+
+        categoriaNome:
+            "Argentina",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://assets.adidas.com/images/w_600%2Cf_auto%2Cq_auto/4c9e0f5b4e8d4b9c8d0e7c2a1b8f5e3a_9366/JM8396_21_model.jpg"
+    },
+
+
+    /* =================================================
+       4 NIKE TECH
+    ================================================= */
+
+    {
+        nome:
+            "Conjunto Nike Tech Fleece Black",
+
+        preco:
+            499.99,
+
+        categoria:
+            "tech",
+
+        categoriaNome:
+            "Nike Tech",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://6ixcompany.com.br/cdn/shop/files/ddd_165x.jpg?v=1689715586"
+    },
+
+
+    {
+        nome:
+            "Conjunto Nike Tech Fleece Grey",
+
+        preco:
+            519.99,
+
+        categoria:
+            "tech",
+
+        categoriaNome:
+            "Nike Tech",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://6ixcompany.com.br/cdn/shop/files/5c0eb7d28ffb7f67609cac7d31390719_165x.jpg?v=1689715910"
+    },
+
+
+    {
+        nome:
+            "Conjunto Nike Tech Fleece White",
+
+        preco:
+            529.99,
+
+        categoria:
+            "tech",
+
+        categoriaNome:
+            "Nike Tech",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://www.mvstore11.com.br/cdn/shop/products/conjunto-nike-tech-fleece-927447_750x.jpg?v=1704523540"
+    },
+
+
+    {
+        nome:
+            "Conjunto Nike Tech Fleece Black Premium",
+
+        preco:
+            539.99,
+
+        categoria:
+            "tech",
+
+        categoriaNome:
+            "Nike Tech",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://6ixcompany.com.br/cdn/shop/files/ddd_165x.jpg?v=1689715586"
+    },
+
+
+    /* =================================================
+       3 CALÇAS JOGADOR
+    ================================================= */
+
+    {
+        nome:
+            "Calça Player Football Blue",
+
+        preco:
+            219.99,
+
+        categoria:
+            "calcas",
+
+        categoriaNome:
+            "Jogador",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://imgnike-a.akamaihd.net/1920x1920/02860315A7.jpg"
+    },
+
+
+    {
+        nome:
+            "Calça Player Training Black",
+
+        preco:
+            209.99,
+
+        categoria:
+            "calcas",
+
+        categoriaNome:
+            "Jogador",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://www.tradeinn.com/f/14018/140181494/adidas-tiro-23-competition-training-pants.jpg"
+    },
+
+
+    {
+        nome:
+            "Calça Player Training Blue",
+
+        preco:
+            229.99,
+
+        categoria:
+            "calcas",
+
+        categoriaNome:
+            "Jogador",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://assets.adidas.com/images/w_500%2Cf_auto%2Cq_auto/b8b9926044504412871effe8998020fe_9366/Calca_de_Treino_Tiro_26_League_Azul_KD9803_21_model.jpg"
+    },
+
+
+    /* =================================================
+       3 SHORTS JOGADOR
+    ================================================= */
+
+    {
+        nome:
+            "Short Player Brasil White",
+
+        preco:
+            119.99,
+
+        categoria:
+            "shorts",
+
+        categoriaNome:
+            "Jogador",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://imgnike-a.akamaihd.net/1920x1920/02263851A6.jpg"
+    },
+
+
+    {
+        nome:
+            "Short Player Football Blue",
+
+        preco:
+            129.99,
+
+        categoria:
+            "shorts",
+
+        categoriaNome:
+            "Jogador",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://imgnike-a.akamaihd.net/1920x1920/02263851A6.jpg"
+    },
+
+
+    {
+        nome:
+            "Short Player Football Green",
+
+        preco:
+            129.99,
+
+        categoria:
+            "shorts",
+
+        categoriaNome:
+            "Jogador",
+
+        tamanhos:
+            "P, M, G e GG",
+
+        imagem:
+            "https://imgnike-a.akamaihd.net/1920x1920/02263851A6.jpg"
+    }
+
+];
+
+
+/* =====================================================
+   CARRINHO
+===================================================== */
+
+let carrinho = [];
+
+
+/* =====================================================
+   MOSTRAR PRODUTOS
+===================================================== */
+
+function mostrarProdutos(lista = produtos) {
+
+    const container =
+        document.getElementById("products");
+
+    container.innerHTML = "";
+
+
+    lista.forEach((produto, index) => {
+
+        container.innerHTML += `
+
+            <article class="product">
+
+                <div class="product-image-container">
+
+                    <span class="categoria">
+                        ${produto.categoriaNome}
+                    </span>
+
+                    <img
+                        class="product-image"
+                        src="${produto.imagem}"
+                        alt="${produto.nome}"
+                        loading="lazy"
+                        onerror="this.src='https://placehold.co/600x700/111111/ffffff?text=BorbaKits'"
+                    >
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <h3>
+                        ${produto.nome}
+                    </h3>
+
+                    <p class="price">
+                        ${formatarPreco(produto.preco)}
+                    </p>
+
+                    <p class="sizes">
+                        Tamanhos:
+                        ${produto.tamanhos}
+                    </p>
+
+                    <button
+                        class="buy-button"
+                        onclick="adicionarProduto(${index})"
+                    >
+
+                        🛒 Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </article>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   FILTRAR PRODUTOS
+===================================================== */
+
+function filtrarProdutos(categoria, botao) {
+
+    document
+        .querySelectorAll(".filtro")
+        .forEach(btn => {
+            btn.classList.remove("ativo");
+        });
+
+
+    botao.classList.add("ativo");
+
+
+    if (categoria === "todos") {
+
+        mostrarProdutos(produtos);
+
+        return;
+
+    }
+
+
+    const filtrados =
+        produtos.filter(
+            produto =>
+                produto.categoria === categoria
+        );
+
+
+    mostrarProdutos(filtrados);
+
+}
+
+
+/* =====================================================
+   ADICIONAR AO CARRINHO
+===================================================== */
+
+function adicionarProduto(index) {
+
+    const produto =
+        produtos[index];
+
+
+    const existente =
+        carrinho.find(
+            item =>
+                item.nome === produto.nome
+        );
+
+
+    if (existente) {
+
+        existente.quantidade++;
+
+    } else {
+
+        carrinho.push({
+
+            nome:
+                produto.nome,
+
+            preco:
+                produto.preco,
+
+            imagem:
+                produto.imagem,
+
+            quantidade:
+                1
+
+        });
+
+    }
+
+
+    atualizarCarrinho();
+
+    abrirCarrinho();
+
+}
+
+
+/* =====================================================
+   ATUALIZAR CARRINHO
+===================================================== */
+
+function atualizarCarrinho() {
+
+    const container =
+        document.getElementById("cartItems");
+
+    const contador =
+        document.getElementById("contador");
+
+    const totalElement =
+        document.getElementById("total");
+
+
+    container.innerHTML = "";
+
+
+    let total = 0;
+
+    let quantidadeTotal = 0;
+
+
+    if (carrinho.length === 0) {
+
+        container.innerHTML = `
+
+            <p class="empty-cart">
+                Seu carrinho está vazio.
+            </p>
+
+        `;
+
+    }
+
+
+    carrinho.forEach(
+        (produto, index) => {
+
+            const subtotal =
+                produto.preco *
+                produto.quantidade;
+
+
+            total += subtotal;
+
+            quantidadeTotal +=
+                produto.quantidade;
+
+
+            container.innerHTML += `
+
+                <div class="cart-item">
+
+                    <img
+                        src="${produto.imagem}"
+                        alt="${produto.nome}"
+                    >
+
+
+                    <div class="cart-item-info">
+
+                        <h4>
+                            ${produto.nome}
+                        </h4>
+
+                        <div class="cart-item-price">
+
+                            ${formatarPreco(produto.preco)}
+
+                        </div>
+
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="diminuirQuantidade(${index})"
+                            >
+                                −
+                            </button>
+
+
+                            <span>
+                                ${produto.quantidade}
+                            </span>
+
+
+                            <button
+                                onclick="aumentarQuantidade(${index})"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            class="remove"
+                            onclick="removerProduto(${index})"
+                        >
+                            Remover
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    contador.textContent =
+        quantidadeTotal;
+
+
+    totalElement.textContent =
+        formatarPreco(total);
+
+}
+
+
+/* =====================================================
+   AUMENTAR QUANTIDADE
+===================================================== */
+
+function aumentarQuantidade(index) {
+
+    carrinho[index].quantidade++;
+
+    atualizarCarrinho();
+
+}
+
+
+/* =====================================================
+   DIMINUIR QUANTIDADE
+===================================================== */
+
+function diminuirQuantidade(index) {
+
+    if (
+        carrinho[index].quantidade > 1
+    ) {
+
+        carrinho[index].quantidade--;
+
+    } else {
+
+        carrinho.splice(index, 1);
+
+    }
+
+
+    atualizarCarrinho();
+
+}
+
+
+/* =====================================================
+   REMOVER
+===================================================== */
+
+function removerProduto(index) {
+
+    carrinho.splice(index, 1);
+
+    atualizarCarrinho();
+
+}
+
+
+/* =====================================================
+   FORMATAR PREÇO
+===================================================== */
+
+function formatarPreco(valor) {
+
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style: "currency",
+            currency: "BRL"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ABRIR CARRINHO
+===================================================== */
+
+function abrirCarrinho() {
+
+    document
+        .getElementById("cartPanel")
+        .classList.add("active");
+
+
+    document
+        .getElementById("overlay")
+        .classList.add("active");
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =====================================================
+   FECHAR CARRINHO
+===================================================== */
+
+function fecharCarrinho() {
+
+    document
+        .getElementById("cartPanel")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("overlay")
+        .classList.remove("active");
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =====================================================
+   FINALIZAR PEDIDO
+===================================================== */
+
+function finalizarPedido() {
+
+    if (carrinho.length === 0) {
+
+        alert(
+            "Seu carrinho está vazio!"
+        );
+
+        return;
+
+    }
+
+
+    let mensagem =
+        "Olá! Quero fazer um pedido na BorbaKits:%0A%0A";
+
+
+    let total = 0;
+
+
+    carrinho.forEach(
+        produto => {
+
+            const subtotal =
+                produto.preco *
+                produto.quantidade;
+
+
+            total += subtotal;
+
+
+            mensagem +=
+                `• ${produto.nome}%0A` +
+                `Quantidade: ${produto.quantidade}%0A` +
+                `Subtotal: ${formatarPreco(subtotal)}%0A%0A`;
+
+        }
+    );
+
+
+    mensagem +=
+        `TOTAL: ${formatarPreco(total)}`;
+
+
+    const numeroWhatsApp =
+        "5514998416400";
+
+
+    const url =
+        `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   FORMULÁRIO
+===================================================== */
+
+function enviarFormulario(event) {
+
+    event.preventDefault();
+
+
+    const nome =
+        document.getElementById("nome").value;
+
+
+    alert(
+        `Obrigado, ${nome}! Recebemos sua mensagem.`
+    );
+
+
+    event.target.reset();
+
+}
+
+
+/* =====================================================
+   TECLA ESC
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            fecharCarrinho();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INICIAR SITE
+===================================================== */
+
+mostrarProdutos();
+
+atualizarCarrinho();
+
+
+</script>
+
+</body>
+
+</html>
